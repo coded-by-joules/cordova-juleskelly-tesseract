@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  id="com.juleskelly.tesseract"
+  version="1.2">
+
+  <name>TesseractOCR</name>
+  <description>Tesseract engine for android</description>
+  <license>Apache 2.0 License</license>
+  <keywords>cordova, tesseract, ocr</keywords>
+
+  <engines>
+    <engine name="cordova" version=">=3.6.0" />
+  </engines>
+
+  <js-module src="www/tesseractOCR.js" name="TesseractOCR">
+    <clobbers target="tesseractOCR" />
+  </js-module>
+
+  <!-- native supports -->
+  <!-- android -->
+  <platform name="android">
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="TesseractOCR">
+        <param name="android-package" value="com.juleskelly.tesseract.TesseractOCR" />
+      </feature>
+    </config-file>
+
+    <source-file src="src/android/TesseractOCR.java" target-dir="src/com/juleskelly/tesseract/" />
+    <source-file src="src/android/PageIterator.java" target-dir="src/com/googlecode/tesseract/android" />
+    <source-file src="src/android/ResultIterator.java" target-dir="src/com/googlecode/tesseract/android" />
+    <source-file src="src/android/TessBaseAPI.java" target-dir="src/com/googlecode/tesseract/android" />
+    <source-file src="src/android/AdaptiveMap.java" target-dir="src/com/googlecode/leptonica/android" />
+    <source-file src="src/android/Binarize.java" target-dir="src/com/googlecode/leptonica/android" />
+    <source-file src="src/android/Box.java" target-dir="src/com/googlecode/leptonica/android" />
+    <source-file src="src/android/Constants.java" target-dir="src/com/googlecode/leptonica/android" />
+    <source-file src="src/android/Convert.java" target-dir="src/com/googlecode/leptonica/android" />
+    <source-file src="src/android/Enhance.java" target-dir="src/com/googlecode/leptonica/android" />
+    <source-file src="src/android/JpegIO.java" target-dir="src/com/googlecode/leptonica/android" />
+    <source-file src="src/android/Pix.java" target-dir="src/com/googlecode/leptonica/android" />
+    <source-file src="src/android/Pixa.java" target-dir="src/com/googlecode/leptonica/android" />
+    <source-file src="src/android/ReadFile.java" target-dir="src/com/googlecode/leptonica/android" />
+    <source-file src="src/android/Rotate.java" target-dir="src/com/googlecode/leptonica/android" />
+    <source-file src="src/android/Scale.java" target-dir="src/com/googlecode/leptonica/android" />
+    <source-file src="src/android/Skew.java" target-dir="src/com/googlecode/leptonica/android" />
+    <source-file src="src/android/WriteFile.java" target-dir="src/com/googlecode/leptonica/android" />
+  </platform>
+</plugin>
